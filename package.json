@@ -1,0 +1,27 @@
+{
+  "name": "NTDomo-API",
+  "version": "1.0.0",
+  "description": "API Backend for NTDomo",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daw32-06/NTDomo-API.git"
+  },
+  "keywords": [],
+  "author": "Juan José Rubio Iglesias",
+  "license": "Apache License, Version 2.0",
+  "bugs": {
+    "url": "https://github.com/daw32-06/NTDomo-API/issues"
+  },
+  "homepage": "https://github.com/daw32-06/NTDomo-API#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.5"
+  }
+}
