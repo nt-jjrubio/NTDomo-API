@@ -4,7 +4,8 @@
   "description": "API Backend for NTDomo",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "prestart": "npm install",
+    "start": "nodemon app/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
