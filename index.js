@@ -17,17 +17,17 @@ const config = require(`./config/${env}.config.js`);
 const server  = require('./app/server.js');
 
 
-server.listen(config.port, function() {
+/*server.listen(config.port, function() {
     console.log(`[OK] - NTDomo API - Listening at port ${config.port}`);
-});
+});*/
 
-// mongoose.connect( , function (err, res) {
-//     if(err) {
-//         return console.error('[ERROR] Error establishing a database connection: '+err);
-//     }
-//     console.log('[OK] - database connection');
-//
-//     server.listen(port, function() {
-//         console.log('[OK] - NTDomo API - Listening at port '+port);
-//     });
-// });
+mongoose.connect( config.db, function (err, res) {
+    if(err) {
+        return console.error('[ERROR] Error establishing a database connection: '+err);
+    }
+    console.log('[OK] - Mongo database connection');
+
+    server.listen(config.port, function() {
+        console.log('[OK] - NTDomo API - Listening at port '+config.port);
+    });
+});
