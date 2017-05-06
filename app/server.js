@@ -11,8 +11,9 @@ const server = express();
 // API endpoints
 const api = require('./routes/routes.js');
 
-// Controllers
+// Controllers why???
 const testController = require('./controllers/testController.js');
+const deviceController = require('./controllers/deviceController.js');
 
 // bodyParse to convert body http message
 server.use(bodyParser.urlencoded({ extended: false }));
