@@ -11,5 +11,5 @@ api.get('/test2/:name', testController.testAPIname);
 api.get('/error403', testController.testAPIerror);
 api.post('/device', deviceController.newDevice);
 api.get('/devices', deviceController.getDevices);
-
+api.get('/testI2C/:dev', testController.testAPIi2c);
 module.exports = api;

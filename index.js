@@ -8,7 +8,7 @@
 const mongoose = require('mongoose');
 
 // This constant is to define environment - [dev]elop or [prod]uction
-const env = 'dev';
+const env = 'prod';
 
 // Config file
 const config = require(`./config/${env}.config.js`);
