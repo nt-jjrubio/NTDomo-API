@@ -26,7 +26,7 @@ function testAPIerror(req,res) {
 
 // Function to send a command and receive value
 function testAPIi2c(req, res) {
-    var CMD = 0x64;
+    var CMD = 0x65;
     // req.params.dev  -- device
 
     console.log(req.params.dev);
@@ -36,7 +36,7 @@ function testAPIi2c(req, res) {
             res.status(500).json({'message': err});
         } else {
             console.log("cmd: " + CMD + " byte: " + byte);
-            res.status(200).send('ok');
+            res.status(200).send({'value' : parseInt(byte)});
         }
     });
 
