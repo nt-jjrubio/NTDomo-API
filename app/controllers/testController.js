@@ -24,21 +24,35 @@ function testAPIerror(req,res) {
     res.status(403).json({'message':'Test error 403 forbidden'});
 }
 
+// Function to send a command and receive value
 function testAPIi2c(req, res) {
     var CMD = 0x64;
     // req.params.dev  -- device
 
     console.log(req.params.dev);
-
-    i2c1.sendByte(0x08, CMD, function(err){
+    i2c1.readByte(ARDUINO_ADDR, CMD, function(err, byte){
 
         if(err) {
             res.status(500).json({'message': err});
         } else {
-            res.status(200).send('OK');
+            console.log("cmd: " + CMD + " byte: " + byte);
+            res.status(200).send('ok');
         }
     });
+
+
+    // This funcion only sends a command ... descarted
+    // // Only send a command
+    // i2c1.sendByte(0x08, CMD, function(err){
+    //
+    //     if(err) {
+    //         res.status(500).json({'message': err});
+    //     } else {
+    //         res.status(200).send('OK');
+    //     }
+    // });
 }
+
 
 module.exports = {
     testAPI,
