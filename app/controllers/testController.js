@@ -16,7 +16,8 @@ function testAPIerror(req,res) {
 }
 
 function testToken(req, res) {
-    res.status(200).send({message: 'OK'});
+
+    res.status(200).send({message: 'Logged OK'});
 }
 
 module.exports = {
