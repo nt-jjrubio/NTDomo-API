@@ -15,7 +15,6 @@ function isAuth (req, res, next) {
             next();
         })
         .catch(function(response){
-            console.log('a la mierda el token');
             res.status(response.status).send('Token fails ');
         });
 }
