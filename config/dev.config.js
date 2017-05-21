@@ -2,4 +2,5 @@
 module.exports = {
     port: process.env.PORT || 3001,
     db: process.env.MONGODB || 'mongodb://192.168.56.101:27017/ntdomo',
+    SECRET_TOKEN: 'miclave'
 };

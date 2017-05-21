@@ -1,5 +1,5 @@
 /**
- * Created by juanjoserubio on 03/05/2017.
+ * Created by jjrubio on 03/05/2017.
  */
 
 'use strict';
@@ -8,10 +8,10 @@
 const mongoose = require('mongoose');
 
 // This constant is to define environment - [dev]elop or [prod]uction
-const env = 'dev';
-
+// const env = 'dev';
+global.env = 'dev';
 // Config file
-const config = require(`./config/${env}.config.js`);
+const config = require(`./config/${global.env}.config.js`);
 
 // Express server script
 const server  = require('./app/server.js');

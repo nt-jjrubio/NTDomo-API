@@ -15,8 +15,13 @@ function testAPIerror(req,res) {
     res.status(403).json({'message':'Test error 403 forbidden'});
 }
 
+function testToken(req, res) {
+    res.status(200).send({message: 'OK'});
+}
+
 module.exports = {
     testAPI,
     testAPIname,
-    testAPIerror
+    testAPIerror,
+    testToken
 };
