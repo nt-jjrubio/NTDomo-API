@@ -9,6 +9,11 @@ var i2c = require('i2c-bus'),
 // Function to test endpoint /api/i2cRequest
 function i2cRequest(req, res) {
 
+    // res headers for CORS
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
 
     // req params: dev and cmd
     console.log("/api/i2cRequest");
