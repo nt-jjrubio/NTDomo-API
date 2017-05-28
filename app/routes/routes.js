@@ -22,6 +22,9 @@ api.get('/testI2C/:dev', testController.testAPIi2c);
 // i2cRequest :dev <-- Device address, cmd <-- command
 api.get('/i2cRequest/:dev/:cmd', i2cController.i2cRequest);
 
-api.post('/device', deviceController.newDevice);
+api.post('/newDevice', deviceController.newDevice);
+
+api.delete('/deleteDevice', deviceController.deleteDevice);
+
 api.get('/devices', deviceController.getDevices);
 module.exports = api;

@@ -10,12 +10,31 @@ function newDevice(req, res) {
     console.log('POST /api/device');
     let device = new Device();
     device.name = req.body.name;
-    device.description = req.body.description;
-    device.i2cAddress = req.body.i2cAddress;
+    device.address = req.body.address;
+    device.type = req.body.type;
+    device.icon = req.body.icon;
+
 
     device.save(function(err, deviceStrored){
        if (err) res.status(500).send({message: `Save error on DB ${err} `});
        res.status(200).send({device: deviceStrored});
+    });
+}
+
+function deleteDevice(req, res) {
+    /* res.header('Access-Control-Allow-Origin', '*');
+     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');*/
+
+    console.log('DELETE /api/deleteDevice');
+    let device = new Device();
+   // device.address = req.body.address;
+    // device.remove({device.n})
+
+    device.remove({ 'address': req.body.address }, function(err, success){
+        if (err) res.status(500).send({message: `Save error on DB ${err} `});
+        res.status(200).send(success);
+        //res.status(200).send({device: deviceStrored});
     });
 }
 
@@ -31,5 +50,6 @@ function getDevices(req,res) {
 
 module.exports = {
     newDevice,
-    getDevices
+    getDevices,
+    deleteDevice
 };
