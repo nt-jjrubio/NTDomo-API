@@ -22,19 +22,13 @@ function newDevice(req, res) {
 }
 
 function deleteDevice(req, res) {
-     res.header('Access-Control-Allow-Origin', '*');
-     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
 
     console.log('DELETE /api/deleteDevice');
-    let device = new Device();
-   // device.address = req.body.address;
-    // device.remove({device.n})
 
-    device.remove({ 'address': req.body.address }, function(err, success){
+   Device.remove({ address: req.body.address }, function(err, success){
         if (err) res.status(500).send({message: `Save error on DB ${err} `});
-        res.status(200).send(success);
-        //res.status(200).send({device: deviceStrored});
+
+        res.status(200).send({device: req.body.address});
     });
 }
 
