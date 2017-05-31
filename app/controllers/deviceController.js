@@ -16,8 +16,12 @@ function newDevice(req, res) {
 
 
     device.save(function(err, deviceStrored){
-       if (err) res.status(500).send({message: `Save error on DB ${err} `});
-       res.status(200).send({device: deviceStrored});
+       if (err) {
+           res.status(500).send({message: `Save error on DB ${err} `});
+       }else{
+           res.status(200).send({device: deviceStrored});
+       }
+
     });
 }
 
