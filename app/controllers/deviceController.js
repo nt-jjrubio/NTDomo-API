@@ -3,9 +3,9 @@
 const  Device = require('../models/device.js');
 
 function newDevice(req, res) {
-   /* res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');*/
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
 
     console.log('POST /api/device');
     let device = new Device();
@@ -22,9 +22,9 @@ function newDevice(req, res) {
 }
 
 function deleteDevice(req, res) {
-    /* res.header('Access-Control-Allow-Origin', '*');
+     res.header('Access-Control-Allow-Origin', '*');
      res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');*/
+     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
 
     console.log('DELETE /api/deleteDevice');
     let device = new Device();
@@ -40,6 +40,9 @@ function deleteDevice(req, res) {
 
 
 function getDevices(req,res) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
     console.log('GET /api/devices');
     Device.find({}, function(err, devices){
        res.status(200).send(devices);
