@@ -5,7 +5,8 @@ const api = express.Router();
 const testController = require('../controllers/testController.js');
 const deviceController = require('../controllers/deviceController.js');
 const i2cController = require('../controllers/i2cController.js');
-
+var cors = require('cors');
+api.use(cors());
 
 // API endpoints (All routes start with /api)
 
