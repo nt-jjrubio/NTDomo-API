@@ -40,7 +40,7 @@ api.delete('/deleteDevice', deviceController.deleteDevice);
 
 // Route to connect to devices
 // i2cRequest :dev <-- Device address, cmd <-- command
-api.get('/i2cRequest/:dev/:cmd', i2cController.i2cRequest);
+api.get('/i2cRequest/:dev/:cmd', auth, i2cController.i2cRequest);
 
 
 // SignUp
