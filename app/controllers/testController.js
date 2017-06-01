@@ -1,5 +1,14 @@
 'use strict';
 
+// TODO; modularizar las apis
+var i2c = require('i2c-bus'),
+    i2c1 = i2c.openSync(1);
+
+var ARDUINO_ADDR = 0x08;
+
+
+
+
 // Function to test endpoint /api/test
 function testAPI(req, res) {
     res.status(200).send('Hello');
@@ -20,9 +29,40 @@ function testToken(req, res) {
     res.status(200).send({message: 'Logged OK'});
 }
 
+// Function to send a command and receive value
+function testAPIi2c(req, res) {
+    var CMD = 0x65;
+    // req.params.dev  -- device
+
+    console.log(req.params.dev);
+    i2c1.readByte(ARDUINO_ADDR, CMD, function(err, byte){
+
+        if(err) {
+            res.status(500).json({'message': err});
+        } else {
+            console.log("cmd: " + CMD + " byte: " + byte);
+            res.status(200).send({'value' : parseInt(byte)});
+        }
+    });
+
+
+    // This funcion only sends a command ... descarted
+    // // Only send a command
+    // i2c1.sendByte(0x08, CMD, function(err){
+    //
+    //     if(err) {
+    //         res.status(500).json({'message': err});
+    //     } else {
+    //         res.status(200).send('OK');
+    //     }
+    // });
+}
+
+
 module.exports = {
     testAPI,
     testAPIname,
     testAPIerror,
+    testAPIi2c,
     testToken
 };
