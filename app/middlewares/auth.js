@@ -1,6 +1,6 @@
 'use strict';
 
-const services = require('../../services/index.js');
+const services = require('../services/index.js');
 function isAuth (req, res, next) {
     if(!req.headers.authorization) {
         return res.status(403).send({ message: 'No auth'});
