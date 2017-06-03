@@ -7,6 +7,8 @@ const userController = require('../controllers/user.js');
 const testController = require('../controllers/testController.js');
 const deviceController = require('../controllers/deviceController.js');
 const i2cController = require('../controllers/i2cController.js');
+const sysController = require('../controllers/sysController.js');
+
 var cors = require('cors');
 api.use(cors());
 
@@ -48,4 +50,10 @@ api.post('/signup', userController.signUp);
 
 // SignIn
 api.post('/signin', userController.signIn);
+
+// Shutdown
+api.get('/shutdown', sysController.shutdown);
+
+// Reboot
+api.get('/reboot', sysController.reboot);
 module.exports = api;
