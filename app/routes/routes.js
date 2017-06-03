@@ -4,7 +4,7 @@ const express = require('express');
 const api = express.Router();
 const auth = require('../middlewares/auth.js');
 const userController = require('../controllers/user.js');
-const testController = require('../controllers/testController.js');
+//const testController = require('../controllers/testController.js');
 const deviceController = require('../controllers/deviceController.js');
 const i2cController = require('../controllers/i2cController.js');
 const sysController = require('../controllers/sysController.js');
@@ -14,30 +14,30 @@ api.use(cors());
 
 // API endpoints (All routes start with /api)
 
-// TODO: Remove all test endpoints
-/** All Test Endpoints **/
+/*
+/!** All Test Endpoints **!/
 api.get('/test', testController.testAPI);
 api.get('/test2/:name', testController.testAPIname);
 api.get('/error403', testController.testAPIerror);
-api.get('/testI2C/:dev', testController.testAPIi2c);
+api.get('/testI2C/:dev', testController.testAPIi2c);*/
 
 // After query check if token is valid
-api.get('/testToken', auth, testController.testToken);
+//api.get('/testToken', auth, testController.testToken);
 
 
 /***** Final endpoints *****/
 
 // Route to get an device
-api.post('/device', deviceController.newDevice);
+api.post('/device', auth,  deviceController.newDevice);
 
 // Route to get all devices
-api.get('/devices', deviceController.getDevices);
+api.get('/devices',auth,  deviceController.getDevices);
 
 // Route to create new device
-api.post('/newDevice', deviceController.newDevice);
+api.post('/newDevice', auth,  deviceController.newDevice);
 
 // Route to delete device
-api.delete('/deleteDevice', deviceController.deleteDevice);
+api.delete('/deleteDevice', auth, deviceController.deleteDevice);
 
 
 // Route to connect to devices
@@ -46,14 +46,14 @@ api.get('/i2cRequest/:dev/:cmd', auth, i2cController.i2cRequest);
 
 
 // SignUp
-api.post('/signup', userController.signUp);
+api.post('/signup', auth, userController.signUp);
 
 // SignIn
 api.post('/signin', userController.signIn);
 
 // Shutdown
-api.get('/shutdown', sysController.shutdown);
+api.get('/shutdown', auth, sysController.shutdown);
 
 // Reboot
-api.get('/reboot', sysController.reboot);
+api.get('/reboot', auth, sysController.reboot);
 module.exports = api;

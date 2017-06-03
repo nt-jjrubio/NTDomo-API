@@ -1,6 +1,5 @@
 'use strict';
 
-// TODO; modularizar las apis
 var i2c = require('i2c-bus'),
     i2c1 = i2c.openSync(1);
 

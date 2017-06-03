@@ -16,8 +16,8 @@ function shutdown(req, res) {
                 console.log(stdout);
                 res.status(500).send(err);
             } else {
-                console.log(stdout);
-                res.status(200).send(stdout);
+                //console.log(stdout);
+                res.status(200).send('Shutdown system');
             }
 
         }
@@ -41,8 +41,8 @@ function reboot(req, res) {
                 console.log(stdout);
                 res.status(500).send(err);
             } else {
-                console.log(stdout);
-                res.status(200).send(stdout);
+                //console.log(stdout);
+                res.status(200).send('Rebooting...');
             }
 
         }
