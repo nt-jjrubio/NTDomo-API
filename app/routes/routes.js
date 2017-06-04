@@ -37,9 +37,10 @@ api.get('/devices',auth,  deviceController.getDevices);
 api.post('/newDevice', auth,  deviceController.newDevice);
 
 // Route to delete device
-api.delete('/deleteDevice', auth, deviceController.deleteDevice);
+api.delete('/deleteDevice/:dev', auth, deviceController.deleteDevice);
 
-
+// Route to modify device
+api.post('/modifyDevice',  auth, deviceController.modifyDevice);
 // Route to connect to devices
 // i2cRequest :dev <-- Device address, cmd <-- command
 api.get('/i2cRequest/:dev/:cmd', auth, i2cController.i2cRequest);
