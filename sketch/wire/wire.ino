@@ -111,6 +111,27 @@ void requestEvent()
       break;
 
 
+    case 40:
+      getAnalogValue(0);
+      break;
+    case 41:
+      getAnalogValue(1);
+      break;
+    case 42:
+      getAnalogValue(2);
+      break;
+    case 43:
+      getAnalogValue(3);
+      break;
+    case 46:
+      getAnalogValue(6);
+      break;
+    case 47:
+      getAnalogValue(7);
+      break;
+
+
+
 //    case 100:
 //      Wire.write(200);
 //      break;
